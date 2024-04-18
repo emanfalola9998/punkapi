@@ -6,10 +6,12 @@ type SearchBoxProps = {
     isHighABV: boolean;
     handleIsHighABV: () => void;
     isClassic: boolean;
-    handleIsClassic: () => void
+    handleIsClassic: () => void;
+    isAcidic: boolean;
+    handleIsAcidic: () => void;
 }
 
-const SearchBox = ({ handleIsClassic, isClassic, searchTerm, handleInput, isHighABV, handleIsHighABV }: SearchBoxProps) => {
+const SearchBox = ({ isAcidic, handleIsAcidic, handleIsClassic, isClassic, searchTerm, handleInput, isHighABV, handleIsHighABV }: SearchBoxProps) => {
     
 
     return (
@@ -35,6 +37,14 @@ const SearchBox = ({ handleIsClassic, isClassic, searchTerm, handleInput, isHigh
             name="checkbox"
             checked={isClassic}
             onChange={handleIsClassic}
+            />
+            <label htmlFor="checkbox">High Acidity</label>
+            <input
+            type="checkbox"
+            id="checkbox"
+            name="checkbox"
+            checked={isAcidic}
+            onChange={handleIsAcidic}
             />
         </div>
     );

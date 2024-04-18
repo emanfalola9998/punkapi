@@ -6,9 +6,10 @@ type FilteredListProps = {
     searchTerm: string;
     isHighABV: boolean;
     isClassic: boolean;
+    isAcidic: boolean;
 };
 
-const FiltersList = ({ beers, searchTerm, isHighABV, isClassic }: FilteredListProps) => {
+const FiltersList = ({ beers, searchTerm, isHighABV, isClassic, isAcidic }: FilteredListProps) => {
     
     if (searchTerm){
         beers = beers.filter((beer: BeerType) =>
@@ -23,15 +24,22 @@ const FiltersList = ({ beers, searchTerm, isHighABV, isClassic }: FilteredListPr
         beers  = beers.filter((beer: BeerType) => parseInt(beer.first_brewed.split("/")[1]) < 2010);
     }
 
+    if(isAcidic){
+        beers =  beers.filter((beer:BeerType) => beer.ph < 4)
+    }
+    
+
     return (
         <div>
-        {beers.map((filteredBeer) => (
-            <div key={filteredBeer.id}>
-            <FilterItem filteredBeer={filteredBeer} />
+            {(searchTerm || isHighABV || isClassic || isAcidic) &&
+                beers.map((filteredBeer) => (
+                <div key={filteredBeer.id}>
+                    <FilterItem filteredBeer={filteredBeer} />
+                </div>
+                ))}
             </div>
-        ))}
-        </div>
-    );
+        );
+        
     
 };
 
