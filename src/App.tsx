@@ -6,15 +6,13 @@ import beers from './data/beers'
 import {BeerType} from './types/types'
 
 function App() {
-// console.log("beers", beers);
 const [searchTerm, setSearchTerm] = useState<string>("");
-
-
+const [isHighABV, setIsHighABV] = useState<boolean>(false)
 
   return (
     <>
-      <Navbar setSearchTerm = {setSearchTerm}searchTerm ={searchTerm} beers={beers}/>
-      <Main beers={beers} searchTerm={searchTerm} />
+      <Navbar isHighABV={isHighABV} setIsHighABV={setIsHighABV} setSearchTerm = {setSearchTerm}searchTerm ={searchTerm} beers={beers}/>
+      <Main isHighABV = {isHighABV} beers={beers} searchTerm={searchTerm} />
     </>
   )
 }

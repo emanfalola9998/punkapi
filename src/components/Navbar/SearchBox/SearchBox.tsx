@@ -2,11 +2,12 @@ import React from 'react';
 
 type SearchBoxProps = {
     searchTerm: string;
-    setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    handleInput:  (e: React.ChangeEvent<HTMLInputElement>) => void;
+    isHighABV: boolean;
+    handleIsHighABV: () => void;
 }
 
-const SearchBox = ({ searchTerm, setSearchTerm, handleChange }: SearchBoxProps) => {
+const SearchBox = ({ searchTerm, handleInput, isHighABV, handleIsHighABV }: SearchBoxProps) => {
     console.log("searchTerm", searchTerm);
     
 
@@ -15,8 +16,16 @@ const SearchBox = ({ searchTerm, setSearchTerm, handleChange }: SearchBoxProps) 
             <label>Search Beer Type</label>
             <input 
                 value={searchTerm}
-                onInput={handleChange}
+                onInput={handleInput}
                 placeholder='Type Your beer here...'
+            />
+            <label htmlFor="checkbox">Checkbox Example:</label>
+            <input
+            type="checkbox"
+            id="checkbox"
+            name="checkbox"
+            checked={isHighABV}
+            onChange={handleIsHighABV}
             />
         </div>
     );

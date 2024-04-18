@@ -9,7 +9,7 @@ type CardListTypes = {
 const CardList = ({ beers }: CardListTypes) => {
     
 
-  return (
+    return (
     <div>
         {beers.map(beer => {
             return(
@@ -18,9 +18,9 @@ const CardList = ({ beers }: CardListTypes) => {
             </div>
             )
         })}
-      
+
     </div>
-  );
+    );
 };
 
 export default CardList;

@@ -9,18 +9,25 @@ type NavbarProps = {
   beers: BeerType[];
   searchTerm: string;
   setSearchTerm:  React.Dispatch<React.SetStateAction<string>>
+  isHighABV: boolean;
+  setIsHighABV: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Navbar = ({beers, searchTerm, setSearchTerm} : NavbarProps) => {
+const Navbar = ({beers, searchTerm, setSearchTerm, isHighABV, setIsHighABV} : NavbarProps) => {
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleIsHighABV = () => {
+    setIsHighABV(!isHighABV)
+  }
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value.trim().toLowerCase());
   };
 
   return (
     <div>
-      <SearchBox searchTerm = {searchTerm} setSearchTerm={setSearchTerm} handleChange={handleChange}/>
-      {searchTerm && <FiltersList beers = {beers} searchTerm={searchTerm}/>}
+      <SearchBox isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} searchTerm = {searchTerm} handleInput={handleInput}/>
+      <FiltersList beers = {beers} searchTerm={searchTerm} isHighABV={isHighABV} handleIsHighABV={handleIsHighABV}/>
+
     </div>
   )
 }

@@ -6,12 +6,13 @@ import { BeerType } from '../../types/types'
 type MainTypes = {
     beers: BeerType[];
     searchTerm: string;
+    isHighABV: boolean;
 }
 
-const Main = ({beers, searchTerm} : MainTypes) => {
+const Main = ({beers, searchTerm, isHighABV} : MainTypes) => {
   return (
     <div>
-      {!searchTerm && <CardList beers={beers}/>}
+      {!searchTerm && !isHighABV && <CardList beers={beers}/>}
     </div>
   )
 }
