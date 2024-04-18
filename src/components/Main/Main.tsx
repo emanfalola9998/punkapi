@@ -7,12 +7,14 @@ type MainTypes = {
     beers: BeerType[];
     searchTerm: string;
     isHighABV: boolean;
+    isClassic:boolean
+    isAcidic:boolean
 }
 
-const Main = ({beers, searchTerm, isHighABV} : MainTypes) => {
+const Main = ({isAcidic, beers, isClassic, searchTerm, isHighABV} : MainTypes) => {
   return (
     <div>
-      {!searchTerm && !isHighABV && <CardList beers={beers}/>}
+      {!isAcidic && !isClassic && !searchTerm && !isHighABV && <CardList beers={beers}/>}
     </div>
   )
 }

@@ -11,8 +11,8 @@ const FilterItem = ({filteredBeer} : FilterItemProps) => {
 
         <h1>{filteredBeer.name}</h1>
         <p>Abv: {filteredBeer.abv}</p>
-        <p>{filteredBeer.first_brewed}</p>
-        {/* <p>{filteredBeer.ph}</p> */}
+        <p>First Brewed:{filteredBeer.first_brewed}</p>
+        <p>Ph:{filteredBeer.ph}</p>
         {/* <p>{filteredBeer.name}</p> */}
 
     </div>

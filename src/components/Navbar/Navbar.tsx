@@ -13,9 +13,15 @@ type NavbarProps = {
   setIsHighABV: React.Dispatch<React.SetStateAction<boolean>>
   isClassic: boolean;
   setIsClassic: React.Dispatch<React.SetStateAction<boolean>>
+  isAcidic: boolean;
+  setIsAcidic: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Navbar = ({setIsClassic, isClassic, beers, searchTerm, setSearchTerm, isHighABV, setIsHighABV} : NavbarProps) => {
+const Navbar = ({isAcidic, setIsAcidic, setIsClassic, isClassic, beers, searchTerm, setSearchTerm, isHighABV, setIsHighABV} : NavbarProps) => {
+
+  const handleIsAcidic = () => {
+    setIsAcidic(!isAcidic)
+  }
 
   const handleIsHighABV = () => {
     setIsHighABV(!isHighABV)
@@ -31,8 +37,8 @@ const Navbar = ({setIsClassic, isClassic, beers, searchTerm, setSearchTerm, isHi
 
   return (
     <div>
-      <SearchBox handleIsClassic={handleIsClassic} isClassic={isClassic} isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} searchTerm = {searchTerm} handleInput={handleInput}/>
-      <FiltersList isClassic={isClassic} beers = {beers} searchTerm={searchTerm} isHighABV={isHighABV} />
+      <SearchBox handleIsAcidic={handleIsAcidic} isAcidic={isAcidic} handleIsClassic={handleIsClassic} isClassic={isClassic} isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} searchTerm = {searchTerm} handleInput={handleInput}/>
+      <FiltersList isAcidic={isAcidic} isClassic={isClassic} beers = {beers} searchTerm={searchTerm} isHighABV={isHighABV} />
 
     </div>
   )
