@@ -26,14 +26,7 @@ const FiltersList = ({ beers, searchTerm, isHighABV, handleIsHighABV }: Filtered
 
     return (
         <div>
-            <label htmlFor="checkbox">Checkbox Example:</label>
-            <input
-            type="checkbox"
-            id="checkbox"
-            name="checkbox"
-            checked={isHighABV}
-            onChange={handleIsHighABV}
-            />
+
         {searchTerm && isHighABV ? (
         combinedFilteredBeers.map((filteredBeer) => (
             <div key={filteredBeer.id}>
@@ -52,12 +45,6 @@ const FiltersList = ({ beers, searchTerm, isHighABV, handleIsHighABV }: Filtered
                 filteredBeersByABV.map((filteredBeerByABV) => (
                     <div key={filteredBeerByABV.id}>
                     <FilterItem isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} filteredBeer={filteredBeerByABV} />
-                    </div>
-            ))}
-                {!searchTerm && !isHighABV &&
-                beers.map((beer) => (
-                    <div key={beer.id}>
-                    <FilterItem isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} filteredBeer={beer} />
                     </div>
             ))}
         </>
