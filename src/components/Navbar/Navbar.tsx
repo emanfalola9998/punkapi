@@ -11,9 +11,11 @@ type NavbarProps = {
   setSearchTerm:  React.Dispatch<React.SetStateAction<string>>
   isHighABV: boolean;
   setIsHighABV: React.Dispatch<React.SetStateAction<boolean>>
+  isClassic: boolean;
+  setIsClassic: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Navbar = ({beers, searchTerm, setSearchTerm, isHighABV, setIsHighABV} : NavbarProps) => {
+const Navbar = ({setIsClassic, isClassic, beers, searchTerm, setSearchTerm, isHighABV, setIsHighABV} : NavbarProps) => {
 
   const handleIsHighABV = () => {
     setIsHighABV(!isHighABV)
@@ -23,10 +25,14 @@ const Navbar = ({beers, searchTerm, setSearchTerm, isHighABV, setIsHighABV} : Na
     setSearchTerm(e.target.value.trim().toLowerCase());
   };
 
+  const handleIsClassic = () => {
+    setIsClassic(!isClassic)
+  }
+
   return (
     <div>
-      <SearchBox isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} searchTerm = {searchTerm} handleInput={handleInput}/>
-      <FiltersList beers = {beers} searchTerm={searchTerm} isHighABV={isHighABV} handleIsHighABV={handleIsHighABV}/>
+      <SearchBox handleIsClassic={handleIsClassic} isClassic={isClassic} isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} searchTerm = {searchTerm} handleInput={handleInput}/>
+      <FiltersList isClassic={isClassic} beers = {beers} searchTerm={searchTerm} isHighABV={isHighABV} />
 
     </div>
   )

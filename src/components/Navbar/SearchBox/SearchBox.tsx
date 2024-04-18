@@ -5,10 +5,11 @@ type SearchBoxProps = {
     handleInput:  (e: React.ChangeEvent<HTMLInputElement>) => void;
     isHighABV: boolean;
     handleIsHighABV: () => void;
+    isClassic: boolean;
+    handleIsClassic: () => void
 }
 
-const SearchBox = ({ searchTerm, handleInput, isHighABV, handleIsHighABV }: SearchBoxProps) => {
-    console.log("searchTerm", searchTerm);
+const SearchBox = ({ handleIsClassic, isClassic, searchTerm, handleInput, isHighABV, handleIsHighABV }: SearchBoxProps) => {
     
 
     return (
@@ -19,13 +20,21 @@ const SearchBox = ({ searchTerm, handleInput, isHighABV, handleIsHighABV }: Sear
                 onInput={handleInput}
                 placeholder='Type Your beer here...'
             />
-            <label htmlFor="checkbox">Checkbox Example:</label>
+            <label htmlFor="checkbox">High ABV ({'>'}6.0%)</label>
             <input
             type="checkbox"
             id="checkbox"
             name="checkbox"
             checked={isHighABV}
             onChange={handleIsHighABV}
+            />
+            <label htmlFor="checkbox">Classic Range</label>
+            <input
+            type="checkbox"
+            id="checkbox"
+            name="checkbox"
+            checked={isClassic}
+            onChange={handleIsClassic}
             />
         </div>
     );

@@ -3,17 +3,15 @@ import { BeerType } from '../../../../types/types'
 
 type FilterItemProps = {
     filteredBeer : BeerType
-    handleIsHighABV: () => void;
-    isHighABV: boolean;
 }
 
-const FilterItem = ({filteredBeer, handleIsHighABV, isHighABV} : FilterItemProps) => {
+const FilterItem = ({filteredBeer} : FilterItemProps) => {
     return (
     <div>
 
         <h1>{filteredBeer.name}</h1>
         <p>Abv: {filteredBeer.abv}</p>
-        {/* <p>{filteredBeer.ibu}</p> */}
+        <p>{filteredBeer.first_brewed}</p>
         {/* <p>{filteredBeer.ph}</p> */}
         {/* <p>{filteredBeer.name}</p> */}
 

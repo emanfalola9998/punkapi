@@ -5,53 +5,34 @@ type FilteredListProps = {
     beers: BeerType[];
     searchTerm: string;
     isHighABV: boolean;
-    handleIsHighABV: () => void
-
+    isClassic: boolean;
 };
 
-const FiltersList = ({ beers, searchTerm, isHighABV, handleIsHighABV }: FilteredListProps) => {
-    let filteredBeersByName: BeerType[] = beers.filter((beer: BeerType) =>
-        beer.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    let filteredBeersByABV: BeerType[] = beers.filter(
-        (beer: BeerType) => beer.abv > 4.5
-    );
-    let combinedFilteredBeers: BeerType[] = filteredBeersByName.filter(
-        (beer: BeerType) => filteredBeersByABV.includes(beer)
-    );
-
-  // if (highABV && searchTerm){
-  //     filteredBeersByName = filteredBeersByName.filter(filteredBeersByABV)
-  // }
+const FiltersList = ({ beers, searchTerm, isHighABV, isClassic }: FilteredListProps) => {
+    
+    if (searchTerm){
+        beers = beers.filter((beer: BeerType) =>
+        beer.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    }
+    if (isHighABV){
+        beers = beers.filter(
+            (beer: BeerType) => beer.abv > 6
+        );
+    }
+    if(isClassic){
+        beers  = beers.filter((beer: BeerType) => parseInt(beer.first_brewed.split("/")[1]) < 2010);
+    }
 
     return (
         <div>
-
-        {searchTerm && isHighABV ? (
-        combinedFilteredBeers.map((filteredBeer) => (
+        {beers.map((filteredBeer) => (
             <div key={filteredBeer.id}>
-            <FilterItem isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} filteredBeer={filteredBeer} />
+            <FilterItem filteredBeer={filteredBeer} />
             </div>
-        ))
-        ) : (
-        <>
-            {searchTerm &&
-            filteredBeersByName.map((filteredBeerByName) => (
-                <div key={filteredBeerByName.id}>
-                <FilterItem isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} filteredBeer={filteredBeerByName} />
-                </div>
-            ))}
-                {isHighABV &&
-                filteredBeersByABV.map((filteredBeerByABV) => (
-                    <div key={filteredBeerByABV.id}>
-                    <FilterItem isHighABV={isHighABV} handleIsHighABV={handleIsHighABV} filteredBeer={filteredBeerByABV} />
-                    </div>
-            ))}
-        </>
-        )}
-        
-    </div>
+        ))}
+        </div>
     );
+    
 };
 
 export default FiltersList;
