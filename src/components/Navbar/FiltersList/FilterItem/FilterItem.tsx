@@ -1,5 +1,6 @@
 import React from 'react'
 import { BeerType } from '../../../../types/types'
+import { Link } from 'react-router-dom';
 
 type FilterItemProps = {
     filteredBeer : BeerType
@@ -8,8 +9,9 @@ type FilterItemProps = {
 const FilterItem = ({filteredBeer} : FilterItemProps) => {
     return (
     <div>
-
-        <h1>{filteredBeer.name}</h1>
+        <Link to={`/beers/${filteredBeer.id}`}>
+            <h1>{filteredBeer.name}</h1>
+        </Link>
         <p>Abv: {filteredBeer.abv}</p>
         <p>First Brewed:{filteredBeer.first_brewed}</p>
         <p>Ph:{filteredBeer.ph}</p>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BeerType } from '../../../../types/types';
+import { Link } from 'react-router-dom';
 
 type CardTypes = {
     beer: BeerType;    
@@ -7,6 +8,8 @@ type CardTypes = {
 
 
 const Card = ({beer}: CardTypes) => {
+    console.log("beer.name", beer.name);
+    
 
     return (
         <div>
