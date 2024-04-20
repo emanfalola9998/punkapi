@@ -2,7 +2,7 @@ import FilterItem from "./FilterItem/FilterItem";
 import { BeerType } from "../../../types/types";
 
 type FilteredListProps = {
-    beers: BeerType[];
+    beers: BeerType[] | undefined;
     searchTerm: string;
     isHighABV: boolean;
     isClassic: boolean;
@@ -11,7 +11,7 @@ type FilteredListProps = {
 };
 
 const FiltersList = ({ beers, searchTerm, isHighABV, isClassic, isAcidic }: FilteredListProps) => {
-    
+    if(!beers) return <p>No beers</p>
     if (searchTerm){
         beers = beers.filter((beer: BeerType) =>
         beer.name.toLowerCase().includes(searchTerm.toLowerCase()))

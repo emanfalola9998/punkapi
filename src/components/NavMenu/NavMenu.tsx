@@ -1,5 +1,4 @@
 import './NavMenu.scss'
-import { Link } from 'react-router-dom'
 import NavItems from './NavItems/NavItems'
 import React from 'react'
 import menu from '../../assets/images/menu-icon.png'

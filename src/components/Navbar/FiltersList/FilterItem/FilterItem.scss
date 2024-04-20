@@ -1,0 +1,14 @@
+@import "../../../../assets/styles/typography";
+@import "../../../../assets/styles/variables";
+
+.filteritem-beer-card{
+    display:flex;
+    flex-direction: column;
+    font-family: "Pacifico", cursive;
+        border: $primary-border;
+        &__heading{
+            text-decoration: underline;
+            color:blue;
+            box-shadow: 1px 1px 8px rgba(0,0,0,1.3);
+        }
+}

@@ -6,7 +6,7 @@ import { BeerType } from '../../types/types'
 
 
 type NavbarProps = {
-  beers: BeerType[];
+  beers: BeerType[] | undefined;
   searchTerm: string;
   setSearchTerm:  React.Dispatch<React.SetStateAction<string>>
   isHighABV: boolean;
