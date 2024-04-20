@@ -4,12 +4,13 @@ import Card from "./Card/Card";
 import { useParams } from "react-router";
 
 type CardListTypes = {
-  beers: BeerType[];
-  hasBeerBeenSelected: boolean;
-  setHasBeerBeenSelected: React.Dispatch<React.SetStateAction<boolean>>;
+    beers: BeerType[] | undefined;
+    hasBeerBeenSelected: boolean;
+    setHasBeerBeenSelected: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const CardList = ({beers, hasBeerBeenSelected, setHasBeerBeenSelected,}: CardListTypes) => {
+    if(!beers) return <p>No beers!</p>
     const { beerId } = useParams();
 
     if (!beerId) return <p>Error</p>;

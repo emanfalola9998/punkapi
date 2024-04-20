@@ -4,7 +4,7 @@ import CardList from './CardList/CardList'
 import { BeerType } from '../../types/types'
 
 type MainTypes = {
-    beers: BeerType[];
+    beers: BeerType[] | undefined;
     searchTerm: string;
     isHighABV: boolean;
     isClassic:boolean

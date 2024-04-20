@@ -1,0 +1,27 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/typography';
+
+.beer-card{
+    display:flex;
+    flex-direction: row;
+    background-image: url('./assets/images/beer.jpg');
+    background-size: cover;
+    background-color: black;
+    border: 2px solid white;
+    &__content{
+        // border: $primary-border;
+
+        &-heading{
+            text-decoration: underline;
+            // color:blue;
+            box-shadow: 1px 1px 8px rgba(0,0,0,1.3);
+        }
+    }
+
+    &__image{
+        height: 5%;
+        width: 8%; 
+    }
+
+}
+
