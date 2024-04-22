@@ -1,5 +1,6 @@
 import FilterItem from "./FilterItem/FilterItem";
 import { BeerType } from "../../../types/types";
+import './FiltersList.scss'
 
 type FilteredListProps = {
     beers: BeerType[] | undefined;
@@ -31,19 +32,16 @@ const FiltersList = ({ beers, searchTerm, isHighABV, isClassic, isAcidic }: Filt
     
 
     return (
-        <div>
+        <div className="filter-beers">
             {
-                
                 beers.map((filteredBeer) => (
                 <div key={filteredBeer.id}>
                     <FilterItem filteredBeer={filteredBeer} />
                 </div>
                 ))
             }
-            </div>
-        );
-        
-    
+        </div>
+    );
 };
 
 export default FiltersList;
