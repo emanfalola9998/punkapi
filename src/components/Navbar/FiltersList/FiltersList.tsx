@@ -31,6 +31,8 @@ const FiltersList = ({ beers, searchTerm, isHighABV, isClassic, isAcidic }: Filt
     }
     
 
+
+
     return (
         <div className="filter-beers">
             {

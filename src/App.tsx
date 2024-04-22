@@ -18,7 +18,10 @@ const [isAcidic, setIsAcidic] = useState<boolean>(false)
 const [hasBeerBeenSelected, setHasBeerBeenSelected] = useState<boolean>(false);
 const [showNav, setShowNav] = useState(false);
 const [beerData, setBeerData] = useState<BeerType[]>()
-  
+// console.log(beerData);
+
+// if (!beerData) return <p>Beer API not working! </p>
+
   useEffect(() => {
     const getBeers = async () => {
         try {
@@ -39,7 +42,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
 }, [beerData, setBeerData]);
   
 
-console.log("hasBeerBeenSelected:", hasBeerBeenSelected)
+
 
   return (
   <>
@@ -47,39 +50,40 @@ console.log("hasBeerBeenSelected:", hasBeerBeenSelected)
       <BrowserRouter>
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
-          <Route
-            path="/"
-            element={
-              !hasBeerBeenSelected && (
-                <Navbar
-                  isAcidic={isAcidic}
-                  setIsAcidic={setIsAcidic}
-                  setIsClassic={setIsClassic}
-                  isClassic={isClassic}
-                  isHighABV={isHighABV}
-                  setIsHighABV={setIsHighABV}
-                  setSearchTerm={setSearchTerm}
-                  searchTerm={searchTerm}
-                  beers={beerData}
-                />
-              )
-            }
-          />
-          <Route
-            path="/beers/:beerId"
-            element={
-              <Main
-                setHasBeerBeenSelected={setHasBeerBeenSelected}
-                hasBeerBeenSelected={hasBeerBeenSelected}
-                isAcidic={isAcidic}
-                isClassic={isClassic}
-                isHighABV={isHighABV}
-                beers={beerData}
-                searchTerm={searchTerm}
-              />
-            }
-          />
-        </Routes>
+  <Route
+    path="/"
+    element={
+      !hasBeerBeenSelected && (
+        <Navbar
+          isAcidic={isAcidic}
+          setIsAcidic={setIsAcidic}
+          setIsClassic={setIsClassic}
+          isClassic={isClassic}
+          isHighABV={isHighABV}
+          setIsHighABV={setIsHighABV}
+          setSearchTerm={setSearchTerm}
+          searchTerm={searchTerm}
+          beers={beerData}
+        />
+      )
+    }
+  />
+  <Route
+    path="/beers/:beerId"
+    element={
+      beerData && ( // Render Main component only if beerData is available
+        <Main
+          setHasBeerBeenSelected={setHasBeerBeenSelected}
+          isAcidic={isAcidic}
+          isClassic={isClassic}
+          isHighABV={isHighABV}
+          beers={beerData}
+          searchTerm={searchTerm}
+        />
+      )
+    }
+  />
+</Routes>
       </BrowserRouter>
 
     </div>
