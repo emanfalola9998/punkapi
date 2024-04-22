@@ -23,3 +23,4 @@ const FilterItem = ({filteredBeer} : FilterItemProps) => {
 }
 
 export default FilterItem
+
