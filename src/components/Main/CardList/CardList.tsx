@@ -5,16 +5,17 @@ import { useParams } from "react-router";
 
 type CardListTypes = {
     beers: BeerType[] | undefined;
-    hasBeerBeenSelected: boolean;
     setHasBeerBeenSelected: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const CardList = ({beers, hasBeerBeenSelected, setHasBeerBeenSelected,}: CardListTypes) => {
+const CardList = ({beers, setHasBeerBeenSelected,}: CardListTypes) => {
     if(!beers) return <p>No beers!</p>
     const { beerId } = useParams();
 
     if (!beerId) return <p>Error</p>;
     const selectedBeer = beers.find((beer) => beer.id === parseInt(beerId));
+    // console.log("selectedBeer:", selectedBeer);
+    
     
     useEffect(() => {
         return () => {
@@ -24,9 +25,25 @@ const CardList = ({beers, hasBeerBeenSelected, setHasBeerBeenSelected,}: CardLis
 
     if (!selectedBeer) return <h1>No beer selected</h1>;
 
+    const beerIngredients = () => {
+        const malt = selectedBeer.ingredients.malt.map((malt,index) => (
+            <p key={index}>
+            {malt.name},
+            </p>
+            
+        ));
+        const hops = selectedBeer.ingredients.hops.map((hops, index) => (
+            <p key={index}>
+            {hops.name},
+            </p>
+            ))
+        const yeast = <p>{selectedBeer.ingredients.yeast}</p>
+        return { malt, hops, yeast };
+    }
+
     return (
         <div>
-        <div>{selectedBeer && <Card beer={selectedBeer} />}</div>
+        <div>{selectedBeer && <Card beer={selectedBeer} beerIngredients={beerIngredients}/>}</div>
         </div>
     );
 };
