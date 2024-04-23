@@ -16,7 +16,7 @@ const NavMenu = ({setShowNav, showNav}:NavMenuProps) => {
     return (
     <div>
         <nav className='nav'>
-            <h1>BEERS R US</h1>
+            <h1 className='nav__title'>BEERS R US</h1>
             {showNav && <NavItems toggleNav={toggleNav} />}
             <img
                 src={menu}

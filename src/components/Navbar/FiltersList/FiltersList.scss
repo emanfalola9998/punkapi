@@ -1,9 +1,21 @@
 .filter-beers{
     display: grid;
     // place-items: center;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(1,1fr);
     grid-template-rows: repeat(1,1fr);
     gap:10px
 
 }
 
+@media screen and (min-width: 768px) {
+    .filter-beers{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(1,1fr);
+        &__paginations{
+
+        }
+        &-buttons{
+
+        }
+    }
+}

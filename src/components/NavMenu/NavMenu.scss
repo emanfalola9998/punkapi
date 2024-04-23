@@ -7,6 +7,10 @@
   padding: 0 3.125rem;
   color: $color-black;
 
+  &__title{
+    font-size: 1.75rem;
+  }
+
   .nav__item {
     height: 1.875rem;
   }
@@ -14,6 +18,6 @@
 
 @media screen and (min-width: $desktop-breakpoint) {
   .nav {
-    grid-column: 1 / -1;
+
   }
 }

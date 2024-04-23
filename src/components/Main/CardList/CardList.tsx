@@ -41,9 +41,14 @@ const CardList = ({beers, setHasBeerBeenSelected,}: CardListTypes) => {
         return { malt, hops, yeast };
     }
 
+    const foodPairings = () => {
+        const food = selectedBeer.food_pairing.map((foodPairings, index) => (<p key={index}>{foodPairings}</p>))
+        return {food}
+    }
+
     return (
         <div>
-        <div>{selectedBeer && <Card beer={selectedBeer} beerIngredients={beerIngredients}/>}</div>
+            <div>{selectedBeer && <Card beer={selectedBeer} beerIngredients={beerIngredients} foodPairings={foodPairings}/>}</div>
         </div>
     );
 };

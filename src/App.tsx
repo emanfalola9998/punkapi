@@ -18,6 +18,7 @@ const [isAcidic, setIsAcidic] = useState<boolean>(false)
 const [hasBeerBeenSelected, setHasBeerBeenSelected] = useState<boolean>(false);
 const [showNav, setShowNav] = useState(false);
 const [beerData, setBeerData] = useState<BeerType[]>()
+const [currentPage, setCurrentPage] = useState<number>(1)
 // console.log(beerData);
 
 // if (!beerData) return <p>Beer API not working! </p>
@@ -64,6 +65,8 @@ const [beerData, setBeerData] = useState<BeerType[]>()
           setSearchTerm={setSearchTerm}
           searchTerm={searchTerm}
           beers={beerData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
       )
     }

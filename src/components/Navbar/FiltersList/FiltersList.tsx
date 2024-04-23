@@ -8,57 +8,72 @@ type FilteredListProps = {
     isHighABV: boolean;
     isClassic: boolean;
     isAcidic: boolean;
-    
+    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+    currentPage: number;
 };
 
-const FiltersList = ({ beers, searchTerm, isHighABV, isClassic, isAcidic }: FilteredListProps) => {
-    if(!beers) return <p>No beers</p>
-    if (searchTerm){
-        beers = beers.filter((beer: BeerType) =>
-        beer.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    }
-    if (isHighABV){
-        beers = beers.filter(
-            (beer: BeerType) => beer.abv > 6
+const FiltersList = ({
+    setCurrentPage,
+    currentPage,
+    beers,
+    searchTerm,
+    isHighABV,
+    isClassic,
+    isAcidic
+}: FilteredListProps) => {
+    const itemsPerPage = 3;
+
+    // Filter beers based on search term and other criteria
+    let filteredBeers = beers || [];
+    if (searchTerm) {
+        filteredBeers = filteredBeers.filter((beer: BeerType) =>
+            beer.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
     }
-    if(isClassic){
-        beers  = beers.filter((beer: BeerType) => parseInt(beer.first_brewed.split("/")[1]) < 2010);
+    if (isHighABV) {
+        filteredBeers = filteredBeers.filter((beer: BeerType) => beer.abv > 6);
+    }
+    if (isClassic) {
+        filteredBeers = filteredBeers.filter(
+            (beer: BeerType) => parseInt(beer.first_brewed.split("/")[1]) < 2010
+        );
+    }
+    if (isAcidic) {
+        filteredBeers = filteredBeers.filter((beer: BeerType) => beer.ph < 4);
     }
 
-    if(isAcidic){
-        beers =  beers.filter((beer:BeerType) => beer.ph < 4)
-    }
-    
+    // Calculate pagination
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentItems = filteredBeers.slice(startIndex, endIndex);
+
+    // Function to handle page change
+    const handlePageChange = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
 
 
 
     return (
         <div className="filter-beers">
-            {
-                beers.map((filteredBeer) => (
-                <div key={filteredBeer.id}>
-                    <FilterItem filteredBeer={filteredBeer} />
-                </div>
+            {currentItems.length > 0 ? (
+                currentItems.map((filteredBeer) => (
+                    <div key={filteredBeer.id}>
+                        <FilterItem filteredBeer={filteredBeer} />
+                    </div>
                 ))
-            }
+            ) : (
+                <p>No beers found.</p>
+            )}
+            <div className="filter-beers__pagination">
+                {Array.from({ length: Math.ceil(filteredBeers.length / itemsPerPage) }, (_, index) => (
+                    <button className="filter-beers__pagination-buttons" key={index + 1} onClick={() => handlePageChange(index + 1)}>
+                        {index + 1}
+                    </button>
+                ))}
+            </div>
         </div>
     );
 };
 
 export default FiltersList;
-
-// (searchTerm || isHighABV || isClassic || isAcidic) &&
-
-// Display all beers here regardless of if any of the variables are truthy
-// use the card component in the main.tsx to display each beer if selected so it should only be accessed if a beer is selected
-// all beers will be displayed here if no filter is applied
-// react-routing will be used to display the profiles 
-// create a nav menu to navigate around site and will always show
-// could mimic what is going on in our beatles page take menu (three horizontal lines stacked above each other) image as well
-// Grid layout for beers possibly 5 columns by 2 rows
-// possibility for pagination
-
-// Two theories: 
-// 1. We could map all beer data into filter functions and only use cardList and item for selected beers
-// 2. We could use && to map beers when variables are truthy and map beers within main.tsx when they aren't+
