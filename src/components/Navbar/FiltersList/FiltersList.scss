@@ -1,21 +1,50 @@
-.filter-beers{
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/typography';
+
+.filter__beers{
     display: grid;
     // place-items: center;
     grid-template-columns: repeat(1,1fr);
     grid-template-rows: repeat(1,1fr);
     gap:10px
+    
 
 }
 
+.filter__pagination{
+    // border:2px solid green;
+    width: 100%;
+    &-buttons{
+        background-color: $color-secondary; 
+        border-radius: 15px;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 10px;
+        font: inherit;
+    }
+}
+
 @media screen and (min-width: 768px) {
-    .filter-beers{
+    .filter__beers{
         grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(1,1fr);
-        &__paginations{
-
-        }
+        grid-template-rows: repeat(2,1fr);
+    }
+    .filter__pagination{
+        // border:2px solid green;
+        width: 100%;
         &-buttons{
-
+            background-color: $color-secondary; 
+            border-radius: 15px;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            font: inherit;
         }
     }
 }

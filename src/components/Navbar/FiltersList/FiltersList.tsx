@@ -21,7 +21,7 @@ const FiltersList = ({
     isClassic,
     isAcidic
 }: FilteredListProps) => {
-    const itemsPerPage = 3;
+    const itemsPerPage = 6;
 
     // Filter beers based on search term and other criteria
     let filteredBeers = beers || [];
@@ -55,22 +55,26 @@ const FiltersList = ({
 
 
     return (
-        <div className="filter-beers">
-            {currentItems.length > 0 ? (
-                currentItems.map((filteredBeer) => (
-                    <div key={filteredBeer.id}>
-                        <FilterItem filteredBeer={filteredBeer} />
-                    </div>
-                ))
-            ) : (
-                <p>No beers found.</p>
-            )}
-            <div className="filter-beers__pagination">
-                {Array.from({ length: Math.ceil(filteredBeers.length / itemsPerPage) }, (_, index) => (
-                    <button className="filter-beers__pagination-buttons" key={index + 1} onClick={() => handlePageChange(index + 1)}>
-                        {index + 1}
-                    </button>
-                ))}
+        <div className="filter">
+
+            <div className="filter__beers">
+                {currentItems.length > 0 ? (
+                    currentItems.map((filteredBeer) => (
+                        <div key={filteredBeer.id}>
+                            <FilterItem filteredBeer={filteredBeer} />
+                        </div>
+                    ))
+                ) : (
+                    <p>No beers found.</p>
+                )}
+                    
+            </div>
+            <div className="filter__pagination">
+            {Array.from({ length: Math.ceil(filteredBeers.length / itemsPerPage) }, (_, index) => (
+                        <button className="filter__pagination-buttons" key={index + 1} onClick={() => handlePageChange(index + 1)}>
+                            {index + 1}
+                        </button>
+                    ))}
             </div>
         </div>
     );

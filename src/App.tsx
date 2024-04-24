@@ -26,7 +26,7 @@ const [currentPage, setCurrentPage] = useState<number>(1)
   useEffect(() => {
     const getBeers = async () => {
         try {
-            const response = await fetch("http://localhost:3333/v2/beers?page=2&per_page=30");
+            const response = await fetch("http://localhost:3333/v2/beers?page=2&per_page=60");
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
