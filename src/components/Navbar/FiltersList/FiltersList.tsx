@@ -23,6 +23,8 @@ const FiltersList = ({
 }: FilteredListProps) => {
     const itemsPerPage = 6;
 
+    
+
     // Filter beers based on search term and other criteria
     let filteredBeers = beers || [];
     if (searchTerm) {
@@ -39,7 +41,7 @@ const FiltersList = ({
         );
     }
     if (isAcidic) {
-        filteredBeers = filteredBeers.filter((beer: BeerType) => beer.ph < 4);
+        filteredBeers = filteredBeers.filter((beer: BeerType) => beer.ph && beer.ph < 4 );
     }
 
     // Calculate pagination
