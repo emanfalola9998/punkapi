@@ -1,16 +1,10 @@
-import { defineConfig } from "vitest/config";
-import { fileURLToPath } from "url";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+
 export default defineConfig({
-  test: {
-    globals: true,
-  },
-  build: {
-    outDir: "dist",
-    rollupOptions: {
-      input: {
-        index: fileURLToPath(new URL("index.html", import.meta.url))
-      },
-    },
-  },
+  plugins: [react()],
   base: "/punkapi/"
-});
+}
+);
+
