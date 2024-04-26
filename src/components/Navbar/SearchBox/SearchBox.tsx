@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './SearchBox.scss'
 type SearchBoxProps = {
     searchTerm: string;
     handleInput:  (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -15,7 +15,7 @@ const SearchBox = ({ isAcidic, handleIsAcidic, handleIsClassic, isClassic, searc
     
 
     return (
-        <div>
+        <div className='search-beers'>
             <label>Search Beer Type</label>
             <input 
                 value={searchTerm}
@@ -51,3 +51,6 @@ const SearchBox = ({ isAcidic, handleIsAcidic, handleIsClassic, isClassic, searc
 }
 
 export default SearchBox;
+
+
+

@@ -8,6 +8,7 @@ type NavMenuProps = {
     showNav: boolean
 }
 
+
 const NavMenu = ({setShowNav, showNav}:NavMenuProps) => {
     const toggleNav = () => {
         setShowNav(!showNav);
