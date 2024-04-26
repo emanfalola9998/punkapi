@@ -31,12 +31,14 @@
     .filter__beers{
         grid-template-columns: repeat(3,1fr);
         grid-template-rows: repeat(2,1fr);
+        gap:15px;
     }
     .filter__pagination{
         // border:2px solid green;
         width: 100%;
         &-buttons{
             background-color: $color-secondary; 
+         
             border-radius: 15px;
             color: black;
             padding: 15px 32px;

@@ -21,7 +21,6 @@ const [beerData, setBeerData] = useState<BeerType[]>()
 const [currentPage, setCurrentPage] = useState<number>(1)
 // console.log(beerData);
 
-// if (!beerData) return <p>Beer API not working! </p>
 
   useEffect(() => {
     const getBeers = async () => {
@@ -42,51 +41,53 @@ const [currentPage, setCurrentPage] = useState<number>(1)
   }
 }, [beerData, setBeerData]);
   
+  let beersUsed: BeerType[]= [];
 
+  !beerData ? (beersUsed = beers) : (beersUsed = beerData)
 
-
+  
   return (
   <>
     <div className='app'>
       <BrowserRouter>
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
-  <Route
-    path="/"
-    element={
-      !hasBeerBeenSelected && (
-        <Navbar
-          isAcidic={isAcidic}
-          setIsAcidic={setIsAcidic}
-          setIsClassic={setIsClassic}
-          isClassic={isClassic}
-          isHighABV={isHighABV}
-          setIsHighABV={setIsHighABV}
-          setSearchTerm={setSearchTerm}
-          searchTerm={searchTerm}
-          beers={beerData}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-      )
-    }
-  />
-  <Route
-    path="/beers/:beerId"
-    element={
-      beerData && ( // Render Main component only if beerData is available
-        <Main
-          setHasBeerBeenSelected={setHasBeerBeenSelected}
-          isAcidic={isAcidic}
-          isClassic={isClassic}
-          isHighABV={isHighABV}
-          beers={beerData}
-          searchTerm={searchTerm}
-        />
-      )
-    }
-  />
-</Routes>
+          <Route
+            path="/"
+            element={
+              !hasBeerBeenSelected && (
+                <Navbar
+                  isAcidic={isAcidic}
+                  setIsAcidic={setIsAcidic}
+                  setIsClassic={setIsClassic}
+                  isClassic={isClassic}
+                  isHighABV={isHighABV}
+                  setIsHighABV={setIsHighABV}
+                  setSearchTerm={setSearchTerm}
+                  searchTerm={searchTerm}
+                  beers={beersUsed}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                />
+              )
+            }
+          />
+          <Route
+            path="/beers/:beerId"
+            element={
+              beersUsed && ( // Render Main component only if beerData is available
+                <Main
+                  setHasBeerBeenSelected={setHasBeerBeenSelected}
+                  isAcidic={isAcidic}
+                  isClassic={isClassic}
+                  isHighABV={isHighABV}
+                  beers={beersUsed}
+                  searchTerm={searchTerm}
+                />
+              )
+            }
+          />
+      </Routes>
       </BrowserRouter>
 
     </div>
