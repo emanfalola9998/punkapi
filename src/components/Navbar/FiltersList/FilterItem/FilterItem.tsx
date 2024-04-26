@@ -1,4 +1,3 @@
-import React from 'react'
 import { BeerType } from '../../../../types/types'
 import { Link } from 'react-router-dom';
 import "./FilterItem.scss"
@@ -8,16 +7,6 @@ type FilterItemProps = {
 }
 
 const FilterItem = ({filteredBeer} : FilterItemProps) => {
-    const shortenedTitle = () => {
-        if(filteredBeer.name.length > 24){
-            let sliceAt = filteredBeer.name.indexOf(".", 24)
-            const slicedString = filteredBeer.name.substring(0,sliceAt) 
-            return slicedString
-        }
-        else {
-            return filteredBeer.name
-        }
-    }
 
     return (
     <div className="filteritem-beer-card">
@@ -44,7 +33,7 @@ const FilterItem = ({filteredBeer} : FilterItemProps) => {
             <p><span className='filteritem-beer-card-span'>Ph:   </span>{filteredBeer.ph}</p>
             </div>
 
-            <img className="filteritem-beer-card__content-image" src={filteredBeer.image_url} alt={filteredBeer.name} />
+            <img className="filteritem-beer-card__content-image" src={filteredBeer.image_url ?? undefined} alt={filteredBeer.name} />
         </div>
 
     </div>

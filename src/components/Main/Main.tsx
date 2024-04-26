@@ -13,10 +13,10 @@ type MainTypes = {
     setHasBeerBeenSelected: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Main = ({setHasBeerBeenSelected, isAcidic, beers, isClassic, searchTerm, isHighABV} : MainTypes) => {
+const Main = ({setHasBeerBeenSelected, beers} : MainTypes) => {
   return (
     <div>
-      {<CardList setHasBeerBeenSelected = {setHasBeerBeenSelected}beers={beers}/>}
+      {<CardList setHasBeerBeenSelected = {setHasBeerBeenSelected} beers={beers}/>}
     </div>
   )
 }

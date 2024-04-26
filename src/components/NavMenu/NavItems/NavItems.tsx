@@ -1,4 +1,3 @@
-import React from 'react'
 import blackCross from '../../../assets/images/black-cross.png'
 import { Link } from 'react-router-dom'
 import './NavItems.scss'

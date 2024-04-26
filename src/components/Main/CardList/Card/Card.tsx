@@ -1,6 +1,4 @@
-import React from 'react'
 import { BeerType } from '../../../../types/types';
-import { Link } from 'react-router-dom';
 import './Card.scss'
 
 
@@ -39,7 +37,7 @@ const Card = ({beer, beerIngredients, foodPairings}: CardTypes) => {
                 </div> 
                 <div><span className="beer-card__content-span">Food:</span>{food.food}</div>
             </div>
-            <img className="beer-card__image" src={beer.image_url} alt={beer.name} />
+            <img className="beer-card__image" src={beer.image_url ?? undefined} alt={beer.name} />
 
         </div>
     )
