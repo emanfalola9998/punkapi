@@ -14,7 +14,7 @@ const FilterItem = ({filteredBeer} : FilterItemProps) => {
 
             <div className='filteritem-beer-card__content-text'>
 
-            <Link to={`/beers/punkapi/${filteredBeer.id}`}>
+            <Link to={`beers/${filteredBeer.id}`}>
                 <h1 className='filteritem-beer-card__content-text-heading'>
                 {filteredBeer.name.length > 24
                 ? (() => {

@@ -73,7 +73,7 @@ const [currentPage, setCurrentPage] = useState<number>(1)
             }
           />
           <Route
-            path="/beers/punkapi/:beerId"
+            path="/punkapi/beers/:beerId"
             element={
               beersUsed && (
                 <Main
