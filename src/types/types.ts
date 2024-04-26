@@ -9,8 +9,8 @@ export type BeerType = {
   ibu: number;
   target_fg: number;
   target_og: number;
-  ebc: number;
-  srm: number;
+  ebc: number | null;
+  srm: number | null;
   ph: number;
   attenuation_level: number;
   volume: Volume;
@@ -52,7 +52,7 @@ type Fermentation = {
 
 type MashTemp = {
   temp: Volume;
-  duration: number;
+  duration: number | null;
 };
 
 type Volume = {

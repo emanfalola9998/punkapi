@@ -40,9 +40,9 @@ const [currentPage, setCurrentPage] = useState<number>(1)
       getBeers();
   }
 }, [beerData, setBeerData]);
-  
-  let beersUsed: BeerType[]= [];
 
+
+  let beersUsed: BeerType[]= [];
   !beerData ? (beersUsed = beers) : (beersUsed = beerData)
 
   
@@ -53,7 +53,7 @@ const [currentPage, setCurrentPage] = useState<number>(1)
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
           <Route
-            path="/"
+            path="/punkapi"
             element={
               !hasBeerBeenSelected && (
                 <Navbar
@@ -73,9 +73,9 @@ const [currentPage, setCurrentPage] = useState<number>(1)
             }
           />
           <Route
-            path="/beers/:beerId"
+            path="/beers/punkapi/:beerId"
             element={
-              beersUsed && ( // Render Main component only if beerData is available
+              beersUsed && (
                 <Main
                   setHasBeerBeenSelected={setHasBeerBeenSelected}
                   isAcidic={isAcidic}

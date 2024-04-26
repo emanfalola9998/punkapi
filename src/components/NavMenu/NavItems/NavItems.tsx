@@ -17,7 +17,7 @@ const NavItems = ({toggleNav}: NavItemsProps) => {
                 className="nav-menu__cross"
                 onClick={toggleNav}
                 />
-                <Link to="/" className="nav-menu__item" onClick={toggleNav}>
+                <Link to="/punkapi" className="nav-menu__item" onClick={toggleNav}>
                     Home
                 </Link>
         </div>

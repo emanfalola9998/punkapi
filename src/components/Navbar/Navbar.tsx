@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react'
 import './Navbar.scss'
 import SearchBox from './SearchBox/SearchBox'
 import FiltersList from './FiltersList/FiltersList'
