@@ -15,7 +15,7 @@
     // border:2px solid green;
     width: 100%;
     &-buttons{
-        background-color: $color-secondary; 
+        // background-color: transparent; 
         border-radius: 15px;
         color: black;
         padding: 10px;
@@ -34,18 +34,12 @@
         gap:15px;
     }
     .filter__pagination{
-        // border:2px solid green;
-        width: 100%;
+        display: inline-block;
         &-buttons{
-            background-color: $color-secondary; 
-            border-radius: 15px;
-            color: black;
-            padding: 15px 32px;
-            text-align: center;
+            color: white;
+            float: left;
+            padding: 8px 16px;
             text-decoration: none;
-            font-size: 16px;
-            margin-top: 10px;
-            font: inherit;
         }
     }
 }
