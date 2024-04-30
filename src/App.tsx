@@ -49,7 +49,6 @@ const [currentPage, setCurrentPage] = useState<number>(1)
   return (
   <>
     <div className='app'>
-      <BrowserRouter>
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
           <Route
@@ -88,8 +87,6 @@ const [currentPage, setCurrentPage] = useState<number>(1)
             }
           />
       </Routes>
-      </BrowserRouter>
-
     </div>
 
   </>

@@ -73,9 +73,9 @@ const FiltersList = ({
             </div>
             <div className="filter__pagination">
             {Array.from({ length: Math.ceil(filteredBeers.length / itemsPerPage) }, (_, index) => (
-                        <button className="filter__pagination-buttons" key={index + 1} onClick={() => handlePageChange(index + 1)}>
+                        <a className="filter__pagination-buttons" key={index + 1} onClick={() => handlePageChange(index + 1)}>
                             {index + 1}
-                        </button>
+                        </a>
                     ))}
             </div>
         </div>

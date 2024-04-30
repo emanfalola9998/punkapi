@@ -1,5 +1,6 @@
 import { BeerType } from '../../../../types/types';
 import './Card.scss'
+import Beer from '../../../../assets/images/beer-background.jpg'
 
 
 type CardTypes = {
@@ -37,7 +38,7 @@ const Card = ({beer, foodPairings}: CardTypes) => {
                 </div>  */}
                 <div><span className="beer-card__content-span">Food:</span>{food.food}</div>
             </div>
-            <img className="beer-card__image" src={beer.image_url ?? undefined} alt={beer.name} />
+            <img className="beer-card__image" src={beer.image_url ?? Beer} alt={beer.name} />
 
         </div>
     )

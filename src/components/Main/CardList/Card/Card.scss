@@ -7,7 +7,7 @@
     background-size: cover;
     background-color: black;
     border: 2px solid white;
-    justify-content: space-evenly;
+    justify-content: space-around;
     
     &__content{
         // border: $primary-border;
@@ -25,12 +25,6 @@
 
         &__ingredients{
             display: inline;
-            
-            // &-hops, &-malt, &-yeast{
-            //     display: block;
-            //     text-wrap:nowrap;
-
-            // }
     
             &-hops{
                 display: inline;
@@ -41,9 +35,7 @@
     }
 
     &__image{
-        height: 100%;
-        width: 8%; 
-        justify-self: center;
+        display: none;
     }
 
     p{
@@ -52,12 +44,19 @@
 
 }
 
-// @media screen and (min-width: 768px) {
-//     .beer-card{
-//         display: grid;
-//         grid-template-columns: 1fr;
-//     }
-// }
+@media screen and (min-width: 768px) {
+    .beer-card{
+        &__image{
+            display: flex;
+            height: 100%;
+            width: 8%; 
+            justify-self: center;
+            min-height: 570px;
+        }
+    }
+}
+
+
 
 // dont forget to build it mobile first
 // also grid layout for main page
