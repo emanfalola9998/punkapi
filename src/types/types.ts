@@ -2,7 +2,7 @@ export type BeerType = {
   id: number;
   name: string;
   tagline: string;
-  first_brewed: string;
+  firstBrewed: string;
   description: string;
   image_url: string| null;
   abv: number;
@@ -21,6 +21,16 @@ export type BeerType = {
   brewers_tips: string;
   contributed_by: string;
 };
+
+export type BeerTypeServer = {
+  id:number,
+  name: string;
+  firstBrewed: string;
+  description: string;
+  imageUrl: string| null;
+  abv:number;
+  ph:number
+}
 
 type Ingredients = {
   malt: Malt[];

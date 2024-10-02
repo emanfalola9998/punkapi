@@ -29,7 +29,7 @@ const FilterItem = ({filteredBeer} : FilterItemProps) => {
 
             </Link>
             <p><span className='filteritem-beer-card-span'>Abv:</span> {filteredBeer.abv}</p>
-            <p><span className='filteritem-beer-card-span'>First Brewed:</span>   {filteredBeer.first_brewed}</p>
+            <p><span className='filteritem-beer-card-span'>First Brewed:</span>   {filteredBeer.firstBrewed}</p>
             <p><span className='filteritem-beer-card-span'>Ph:   </span>{filteredBeer.ph}</p>
             </div>
 

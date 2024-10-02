@@ -37,7 +37,7 @@ const FiltersList = ({
     }
     if (isClassic) {
         filteredBeers = filteredBeers.filter(
-            (beer: BeerType) => parseInt(beer.first_brewed.split("/")[1]) < 2010
+            (beer: BeerType) => parseInt(beer.firstBrewed.split("/")[1]) < 2010
         );
     }
     if (isAcidic) {

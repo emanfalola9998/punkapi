@@ -10,6 +10,7 @@ type CardListTypes = {
 
 const CardList = ({beers, setHasBeerBeenSelected,}: CardListTypes) => {
     if(!beers) return <p>No beers!</p>
+    
     const { beerId } = useParams();
 
     if (!beerId) return <p>Error</p>;
@@ -48,7 +49,7 @@ const CardList = ({beers, setHasBeerBeenSelected,}: CardListTypes) => {
 
     return (
         <div>
-            <div>{selectedBeer && <Card beer={selectedBeer}  foodPairings={foodPairings}/>}</div>
+            <div>{selectedBeer && <Card beer={selectedBeer}  />}</div>
         </div>
     );
 };

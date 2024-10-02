@@ -19,10 +19,15 @@ const NavItems = ({toggleNav}: NavItemsProps) => {
                 <Link to="/punkapi" className="nav-menu__item" onClick={toggleNav}>
                     Home
                 </Link>
+                <Link to="/punkapi/beers/create" className="nav-menu__item" onClick={toggleNav}>
+                    Create
+                </Link>
         </div>
     </div>
     )
 }
+
+
 
 export default NavItems
 

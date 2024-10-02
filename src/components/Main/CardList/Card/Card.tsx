@@ -10,15 +10,15 @@ type CardTypes = {
     //     hops: JSX.Element[];
     //     yeast: JSX.Element;
     // }
-    foodPairings: () => {
-        food: JSX.Element[];
-    }
+    // foodPairings: () => {
+    //     food: JSX.Element[];
+    // }
 };
 
 
-const Card = ({beer, foodPairings}: CardTypes) => {
+const Card = ({beer, }: CardTypes) => {
     // const ingredients = beerIngredients()
-    const food = foodPairings();
+    // const food = foodPairings();
     
     
     return (
@@ -36,7 +36,7 @@ const Card = ({beer, foodPairings}: CardTypes) => {
                     <div className='beer-card__content__ingredients-hops'><span className="beer-card__content-span">Hops:</span> {ingredients.hops}</div>
                     <div className='beer-card__content__ingredients-yeast'><span className="beer-card__content-span">Yeast:</span> {ingredients.yeast}</div>
                 </div>  */}
-                <div><span className="beer-card__content-span">Food:</span>{food.food}</div>
+                {/* <div><span className="beer-card__content-span">Food:</span>{food.food}</div> */}
             </div>
             <img className="beer-card__image" src={beer.image_url ?? Beer} alt={beer.name} />
 
