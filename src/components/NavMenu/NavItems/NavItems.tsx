@@ -25,3 +25,4 @@ const NavItems = ({toggleNav}: NavItemsProps) => {
 }
 
 export default NavItems
+
