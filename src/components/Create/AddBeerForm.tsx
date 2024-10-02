@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BeerType, BeerTypeServer } from "../../types/types";
+import { useNavigate } from 'react-router-dom';
+
 
 type AddBeerFormProps = {
   newBeer: BeerTypeServer;
@@ -12,7 +14,7 @@ type AddBeerFormProps = {
 }
 
 const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,setFormError}: AddBeerFormProps) => {
-
+  const navigate = useNavigate();
 
    // Handle input changes (read scala fullstack notion page for understanding)
    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,7 +60,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
   
       const result = await response.json();
       console.log('Beer added successfully:', result);
-  
+      navigate("/punkapi/");      
+      
       // Reset the form after successful submission
       setNewBeer({
         id: 0,
@@ -75,6 +78,7 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
       console.error(error);
     } finally {
       setIsSubmitting(false);
+      
     }
   };
   

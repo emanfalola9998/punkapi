@@ -26,7 +26,7 @@ const [newBeer, setNewBeer] = useState<BeerTypeServer>({
   name: "",
   firstBrewed: "",
   description: "",
-  image_url: "",
+  imageUrl: "",
   abv:0,
   ph:0
 });
