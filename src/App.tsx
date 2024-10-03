@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavMenu from './components/NavMenu/NavMenu'
 import AddBeerForm from './components/Create/AddBeerForm'
 
+
 // all react functionality is stored in app.tsx to allow props to pass data more easily
 
 function App() {

@@ -1,0 +1,85 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/typography';
+
+.add-beer-card{
+    display:flex;
+    flex-direction: row;
+    background-size: cover;
+    background-color: black;
+    border: 2px solid white;
+    justify-content: space-around;
+    &__content{
+        border:2px solid blue;
+        display: flex;
+        flex-direction: column; // stack the content in a column
+        padding:10px; // space between the content and the inside border
+        margin:40px; // space between the inside border and the outside border
+        font-size: 10px;
+        &-title{
+            text-decoration:  underline;
+        }
+        &-label{
+            padding: 20px 20px;
+        }
+        
+    }
+
+}
+
+
+
+
+@media screen and (min-width: 768px){
+    .add-beer-card{
+        display:flex;
+        flex-direction: row;
+        background-size: cover;
+        background-color: black;
+        border: 2px solid white;
+        justify-content: space-around;
+        place-items: center;
+        &__content{
+            border:2px solid blue;
+            display: flex;
+            flex-direction: column; // stack the content in a column
+            padding:40px; // space between the content and the inside border
+            margin:200px; // space between the inside border and the outside border
+            font-size: 30px;
+            &-title{
+                text-decoration:  underline;
+            }
+            // &-label{
+            //     padding: 40px;
+            // }
+            &__form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px; // Adds space between label-input pairs
+                
+                    &-group {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      width: 100%;
+                
+                      label {
+                        width: 30%; // Set a fixed width for labels
+                        text-align: right; // Align label text to the right
+                        margin-right: 20px; // Space between label and input
+                      }
+                
+                      input,
+                      textarea {
+                        flex-grow: 1; // Input fields take up remaining space
+                        padding: 10px;
+                        font-size: 18px;
+                        border: 1px solid #fff;
+                        background-color: #333;
+                        color: white;
+                      }
+                    }
+                }
+        }
+    
+    }
+}

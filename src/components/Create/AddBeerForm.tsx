@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BeerType, BeerTypeServer } from "../../types/types";
 import { useNavigate } from 'react-router-dom';
-
+import './AddBeerForm.scss'
 
 type AddBeerFormProps = {
   newBeer: BeerTypeServer;
@@ -86,12 +86,13 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
 
   
   return (
-    <div className="add-beer-form">
-      <h2>Add New Beer</h2>
-      {formError && <p className="formError">{formError}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
+    <div className="add-beer-card">
+      <div className="add-beer-card__content">
+      <h2 className="add-beer-card__content-title">Add New Beer</h2>
+      {formError && <p className="add-beer-card__content-formError">{formError}</p>}
+      <form className= "add-beer-card__content__form" onSubmit={handleSubmit}>
+        <div className="add-beer-card__content__form-group">
+          <label  htmlFor="name">Name:</label>
           <input
             type="text"
             id="name"
@@ -101,8 +102,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
             required
           />
         </div>
-        <div>
-          <label htmlFor="firstBrewed">First Brewed</label>
+        <div className="add-beer-card__content__form-group">
+          <label  htmlFor="firstBrewed">First Brewed:</label>
           <input
             type="text"
             id="firstBrewed"
@@ -112,8 +113,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
             required
           />
         </div>
-        <div>
-          <label htmlFor="description">Description</label>
+        <div className="add-beer-card__content__form-group">
+          <label  htmlFor="description">Description:</label>
           <textarea
             id="description"
             name="description"
@@ -122,8 +123,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
             required
           />
         </div>
-        <div>
-          <label htmlFor="image_url">Image URL</label>
+        <div className="add-beer-card__content__form-group">
+          <label  htmlFor="image_url">Image URL:</label>
           <input
             type="text"
             id="image_url"
@@ -132,8 +133,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="abv">ABV</label>
+        <div className="add-beer-card__content__form-group">
+          <label  htmlFor="abv">ABV:</label>
           <input
             type="number"
             id="abv"
@@ -144,8 +145,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
             required
           />
         </div>
-        <div>
-          <label htmlFor="ph">pH</label>
+        <div className="add-beer-card__content__form-group">
+          <label  htmlFor="ph">pH:</label>
           <input
             type="number"
             id="ph"
@@ -161,6 +162,8 @@ const AddBeerForm = ({newBeer,setNewBeer,isSubmitting,setIsSubmitting,formError,
           {isSubmitting ? 'Submitting...' : 'Add Beer'}
         </button>
       </form>
+      </div>
+      
     </div>
   );
 };
