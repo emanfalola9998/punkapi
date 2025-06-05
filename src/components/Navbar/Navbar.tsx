@@ -9,9 +9,7 @@ import {
   setIsClassic,
   setIsHighABV,
   setSearchTerm,
-  setCurrentPage,
 } from '../../store/beerSlice';
-import beers from '../../data/beers'
 
 type NavBarProps = {
   beersUsed: BeerType[]
@@ -22,7 +20,6 @@ type NavBarProps = {
 const Navbar = ({beersUsed}: NavBarProps) => {
 
   
-      const searchTerm = useSelector((state: RootState) => state.beer.searchTerm)
       const isAcidic = useSelector((state: RootState) => state.beer.isAcidic)
       const isClassic = useSelector((state: RootState) => state.beer.isClassic)
       const isHighABV = useSelector((state: RootState) => state.beer.isHighABV)

@@ -2,7 +2,6 @@ import React from 'react';
 import './SearchBox.scss'
 import { useSelector,  } from 'react-redux';
 import { RootState } from '../../../store/store';
-import { BeerType } from '../../../types/types';
 
 type SearchBoxProps = {
     handleIsAcidic: () => void

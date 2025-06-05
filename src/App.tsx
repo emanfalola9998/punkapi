@@ -5,22 +5,20 @@ import Main from './components/Main/Main'
 import Navbar from './components/Navbar/Navbar'
 import beers from './data/beers'
 import {BeerType} from './types/types'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import NavMenu from './components/NavMenu/NavMenu'
-import { UseSelector } from 'react-redux'
 import CustomSearch from './components/CustomSearch/CustomSearch'
 
 
 
 function App() {
-const [searchTerm, setSearchTerm] = useState<string>(""); // not needed due to redux
-const [isHighABV, setIsHighABV] = useState<boolean>(false) // not needed due to redux
-const [isClassic, setIsClassic] = useState<boolean>(false) // not needed due to redux
-const [isAcidic, setIsAcidic] = useState<boolean>(false) // not needed due to redux
+const [searchTerm] = useState<string>(""); // not needed due to redux
+const [isHighABV] = useState<boolean>(false) // not needed due to redux
+const [isClassic] = useState<boolean>(false) // not needed due to redux
+const [isAcidic ] = useState<boolean>(false) // not needed due to redux
 const [hasBeerBeenSelected, setHasBeerBeenSelected] = useState<boolean>(false);
 const [showNav, setShowNav] = useState(false); 
 const [beerData, setBeerData] = useState<BeerType[]>() 
-const [currentPage, setCurrentPage] = useState<number>(1) // not needed due to redux
 
 
   useEffect(() => {
