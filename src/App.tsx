@@ -24,7 +24,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
   useEffect(() => {
     const getBeers = async () => {
         try {
-            const response = await fetch("beersbackendnodejs-production.up.railway.app");
+            const response = await fetch("https://beersbackendnodejs-production.up.railway.app");
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
