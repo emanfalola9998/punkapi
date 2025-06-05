@@ -13,7 +13,7 @@ const handleSubmit = async () => {
   const isLocal = import.meta.env.DEV
 const endpoint = isLocal
   ? '/api/proxy/beer-submit'
-  : 'https://your-backend-domain.com/api/proxy/beer-submit'
+  : 'https://beersbackendnodejs-production.up.railway.app/api/proxy/beer-submit'
 
   try {
     const response = await fetch(endpoint, {
