@@ -11,9 +11,9 @@ const handleSubmit = async () => {
   if (!searchTerm) return
 
   const isLocal = import.meta.env.DEV
-  const endpoint = isLocal
-    ? '/api/webhook/beer-submit'
-    : 'https://emmanuelfalola.app.n8n.cloud/webhook/beer-submit'
+const endpoint = isLocal
+  ? '/api/proxy/beer-submit'
+  : 'https://your-backend-domain.com/api/proxy/beer-submit'
 
   try {
     const response = await fetch(endpoint, {
