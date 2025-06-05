@@ -24,7 +24,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
   useEffect(() => {
     const getBeers = async () => {
         try {
-            const response = await fetch("http://localhost:3001/api/beers");
+            const response = await fetch("beersbackendnodejs-production.up.railway.app");
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
@@ -55,7 +55,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
           <Route
-            path="/"
+            path="/punkapi"
             element={
               !hasBeerBeenSelected && (
                 <Navbar beersUsed= {beersUsed}

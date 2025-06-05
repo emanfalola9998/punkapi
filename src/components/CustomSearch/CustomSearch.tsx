@@ -7,26 +7,31 @@ const CustomSearch = () => {
         setSearchTerm(e.target.value.trim())
     }
 
-    const handleSubmit = async () => {
-        if (!searchTerm) return
+const handleSubmit = async () => {
+  if (!searchTerm) return
 
-        try {
-        const response = await fetch('/api/webhook/beer-submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url: searchTerm })
-        })
+  const isLocal = import.meta.env.DEV
+  const endpoint = isLocal
+    ? '/api/webhook/beer-submit'
+    : 'https://emmanuelfalola.app.n8n.cloud/webhook/beer-submit'
 
-        if (!response.ok) {
-            throw new Error('Failed to submit')
-        }
-        
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: searchTerm })
+    })
 
-        console.log('✅ Submitted successfully')
-        } catch (error) {
-        console.error("❌ API call failed:", error)
-        }
+    if (!response.ok) {
+      throw new Error('Failed to submit')
     }
+
+    console.log('✅ Submitted successfully')
+  } catch (error) {
+    console.error("❌ API call failed:", error)
+  }
+}
+
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
