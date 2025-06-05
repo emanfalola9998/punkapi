@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // vite.config.ts
 export default defineConfig({
   plugins: [react()],
-  base: "/punkapi/", // <-- important
+  base: "/", // <-- important
   server: {
     proxy: {
       '/api': {

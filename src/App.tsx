@@ -55,7 +55,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
           <Route
-            path="/punkapi"
+            path="/"
             element={
               !hasBeerBeenSelected && (
                 <Navbar beersUsed= {beersUsed}
@@ -64,7 +64,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
             }
           />
           <Route
-            path="/punkapi/beers/:beerId"
+            path="/beers/:beerId"
             element={
               beersUsed && (
                 <Main
@@ -80,7 +80,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
           />
 
           <Route 
-            path="/punkapi/customSearch"
+            path="/customSearch"
             element={<CustomSearch/>}
           />
       </Routes>
