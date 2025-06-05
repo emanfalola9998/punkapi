@@ -19,6 +19,9 @@ const NavItems = ({toggleNav}: NavItemsProps) => {
                 <Link to="/" className="nav-menu__item" onClick={toggleNav}>
                     Home
                 </Link>
+                <Link to="/customSearch" className="nav-menu__item" onClick={toggleNav}>
+                    CustomSearch
+                </Link>
         </div>
     </div>
     )
