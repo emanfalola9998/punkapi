@@ -1,6 +1,7 @@
 import { BeerType } from '../../../../types/types'
 import { Link } from 'react-router-dom';
 import "./FilterItem.scss"
+import { Card } from "antd";
 
 type FilterItemProps = {
     filteredBeer : BeerType

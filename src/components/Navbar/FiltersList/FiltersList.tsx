@@ -1,32 +1,30 @@
 import FilterItem from "./FilterItem/FilterItem";
 import { BeerType } from "../../../types/types";
 import './FiltersList.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../../store/store';
+import { setCurrentPage } from "../../../store/beerSlice";
 
-type FilteredListProps = {
-    beers: BeerType[] | undefined;
-    searchTerm: string;
-    isHighABV: boolean;
-    isClassic: boolean;
-    isAcidic: boolean;
-    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-    currentPage: number;
-};
+type FilterListProps = {
+    beersUsed: BeerType[]
+}
 
-const FiltersList = ({
-    setCurrentPage,
-    currentPage,
-    beers,
-    searchTerm,
-    isHighABV,
-    isClassic,
-    isAcidic
-}: FilteredListProps) => {
+const FiltersList = ({beersUsed}: FilterListProps) => {
     const itemsPerPage = 6;
 
-    
+    const searchTerm = useSelector((state: RootState) => state.beer.searchTerm)
+    const isHighABV = useSelector((state: RootState ) => state.beer.isHighABV)
+    const isClassic = useSelector((state: RootState) => state.beer.isClassic)
+    const isAcidic = useSelector((state: RootState) => state.beer.isAcidic)
+    const currentPage = useSelector((state: RootState) => state.beer.currentPage)
+    const beers = useSelector((state: RootState) => state.beer.beerData)
 
+    const beersArray = beersUsed ?? beers
+
+
+    const dispatch = useDispatch()
     // Filter beers based on search term and other criteria
-    let filteredBeers = beers || [];
+    let filteredBeers = beersArray || [];
     if (searchTerm) {
         filteredBeers = filteredBeers.filter((beer: BeerType) =>
             beer.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -51,7 +49,7 @@ const FiltersList = ({
 
     // Function to handle page change
     const handlePageChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber);
+        dispatch(setCurrentPage(pageNumber));
     };
 
 

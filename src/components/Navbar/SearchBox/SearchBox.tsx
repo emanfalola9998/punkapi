@@ -1,18 +1,24 @@
 import React from 'react';
 import './SearchBox.scss'
+import { useSelector,  } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { BeerType } from '../../../types/types';
+
 type SearchBoxProps = {
-    searchTerm: string;
-    handleInput:  (e: React.ChangeEvent<HTMLInputElement>) => void;
-    isHighABV: boolean;
-    handleIsHighABV: () => void;
-    isClassic: boolean;
-    handleIsClassic: () => void;
-    isAcidic: boolean;
-    handleIsAcidic: () => void;
+    handleIsAcidic: () => void
+    handleIsClassic: () => void
+    handleIsHighABV: () => void
+    handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void
+
 }
 
-const SearchBox = ({ isAcidic, handleIsAcidic, handleIsClassic, isClassic, searchTerm, handleInput, isHighABV, handleIsHighABV }: SearchBoxProps) => {
+const SearchBox = ({handleIsAcidic, handleIsClassic, handleInput, handleIsHighABV }: SearchBoxProps) => {
     
+    const searchTerm = useSelector((state: RootState) => state.beer.searchTerm)
+    const isAcidic = useSelector((state: RootState) => state.beer.isAcidic)
+    const isClassic = useSelector((state: RootState) => state.beer.isClassic)
+    const isHighABV = useSelector((state: RootState) => state.beer.isHighABV)
+
 
     return (
         <div className='search-beers'>

@@ -7,25 +7,26 @@ import beers from './data/beers'
 import {BeerType} from './types/types'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavMenu from './components/NavMenu/NavMenu'
+import { UseSelector } from 'react-redux'
+import CustomSearch from './components/CustomSearch/CustomSearch'
 
 
 
 function App() {
-const [searchTerm, setSearchTerm] = useState<string>("");
-const [isHighABV, setIsHighABV] = useState<boolean>(false)
-const [isClassic, setIsClassic] = useState<boolean>(false)
-const [isAcidic, setIsAcidic] = useState<boolean>(false)
+const [searchTerm, setSearchTerm] = useState<string>(""); // not needed due to redux
+const [isHighABV, setIsHighABV] = useState<boolean>(false) // not needed due to redux
+const [isClassic, setIsClassic] = useState<boolean>(false) // not needed due to redux
+const [isAcidic, setIsAcidic] = useState<boolean>(false) // not needed due to redux
 const [hasBeerBeenSelected, setHasBeerBeenSelected] = useState<boolean>(false);
-const [showNav, setShowNav] = useState(false);
-const [beerData, setBeerData] = useState<BeerType[]>()
-const [currentPage, setCurrentPage] = useState<number>(1)
-// console.log(beerData);
+const [showNav, setShowNav] = useState(false); 
+const [beerData, setBeerData] = useState<BeerType[]>() 
+const [currentPage, setCurrentPage] = useState<number>(1) // not needed due to redux
 
 
   useEffect(() => {
     const getBeers = async () => {
         try {
-            const response = await fetch("http://localhost:3333/v2/beers?page=2&per_page=60");
+            const response = await fetch("http://localhost:3001/api/beers");
             if (!response.ok) {
                 throw new Error("Failed to fetch data");
             }
@@ -42,9 +43,13 @@ const [currentPage, setCurrentPage] = useState<number>(1)
 }, [beerData, setBeerData]);
 
 
-  let beersUsed: BeerType[]= [];
-  !beerData ? (beersUsed = beers) : (beersUsed = beerData)
+  // let beersUsed: BeerType[]= [];
+  // !beerData ? (beersUsed = beers) : (beersUsed = beerData)
+  const beersUsed: BeerType[] = beerData ?? beers;
+  console.log("beerData: ", beerData)
 
+
+  // console.log(beersUsed)
   
   return (
   <>
@@ -55,18 +60,7 @@ const [currentPage, setCurrentPage] = useState<number>(1)
             path="/punkapi"
             element={
               !hasBeerBeenSelected && (
-                <Navbar
-                  isAcidic={isAcidic}
-                  setIsAcidic={setIsAcidic}
-                  setIsClassic={setIsClassic}
-                  isClassic={isClassic}
-                  isHighABV={isHighABV}
-                  setIsHighABV={setIsHighABV}
-                  setSearchTerm={setSearchTerm}
-                  searchTerm={searchTerm}
-                  beers={beersUsed}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
+                <Navbar beersUsed= {beersUsed}
                 />
               )
             }
@@ -85,6 +79,11 @@ const [currentPage, setCurrentPage] = useState<number>(1)
                 />
               )
             }
+          />
+
+          <Route 
+            path="/punkapi/customSearch"
+            element={<CustomSearch/>}
           />
       </Routes>
     </div>
