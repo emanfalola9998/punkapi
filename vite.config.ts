@@ -4,17 +4,15 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/punkapi/",
+  base: "/",  // serve from root
   server: {
-  proxy: {
-    '/api': {
-      target: 'localhost:3001',
-      changeOrigin: true,
-      rewrite: (path) => path.replace(/^\/api/, '')
+    proxy: {
+      '/api': {
+        target: 'localhost:3001',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   }
-}
-}
-);
-
+});
 
