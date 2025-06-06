@@ -20,25 +20,23 @@ const [hasBeerBeenSelected, setHasBeerBeenSelected] = useState<boolean>(false);
 const [showNav, setShowNav] = useState(false); 
 const [beerData, setBeerData] = useState<BeerType[]>() 
 
+useEffect(() => {
+  const getBeers = async () => {
+    try {
+      const response = await fetch("https://beersbackendnodejs-production.up.railway.app/api/beers");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data: BeerType[] = await response.json();
+      setBeerData(data);
+    } catch (error) {
+      console.error("API call failed:", error);
+    }
+  };
 
-  useEffect(() => {
-    const getBeers = async () => {
-        try {
-            const response = await fetch("https://beersbackendnodejs-production.up.railway.app/api/beers");
-            if (!response.ok) {
-                throw new Error("Failed to fetch data");
-            }
-            const data: BeerType[] = await response.json();
-            setBeerData(data);
-        } catch (error) {
-            console.error("API call failed:", error);
-        }
-    };
+  getBeers(); // Always call it on mount
+}, [beerData]); // <- empty dependency array
 
-  if (!beerData) {
-      getBeers();
-  }
-}, [beerData, setBeerData]);
 
 
   // let beersUsed: BeerType[]= [];
