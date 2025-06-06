@@ -8,7 +8,7 @@ import {BeerType} from './types/types'
 import {Routes, Route, Navigate } from "react-router-dom";
 import NavMenu from './components/NavMenu/NavMenu'
 import CustomSearch from './components/CustomSearch/CustomSearch'
-import { API_BASE_URL } from './utils/api'
+// import { API_BASE_URL } from './utils/api'
 
 
 function App() {
@@ -24,7 +24,7 @@ const [shouldRefetch, setShouldRefetch] = useState(false)
 useEffect(() => {
   const getBeers = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/beers`);
+      const response = await fetch("https://beersbackendnodejs-production.up.railway.app/api/beers");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
