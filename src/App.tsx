@@ -8,7 +8,7 @@ import {BeerType} from './types/types'
 import {Routes, Route, Navigate } from "react-router-dom";
 import NavMenu from './components/NavMenu/NavMenu'
 import CustomSearch from './components/CustomSearch/CustomSearch'
-import { API_BASE_URL } from './utils/api'
+// import { API_BASE_URL } from './utils/api'
 
 
 function App() {
