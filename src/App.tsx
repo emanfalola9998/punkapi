@@ -82,7 +82,6 @@ useEffect(() => {
           <Route 
             path="/customSearch"
             element={<CustomSearch
-              shouldRefetch={shouldRefetch}
               setShouldRefetch={setShouldRefetch}
             />}
           />

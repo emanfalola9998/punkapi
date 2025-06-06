@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 
 type CustomSearchProps = {
-    shouldRefetch: boolean
     setShouldRefetch: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CustomSearch: React.FC<CustomSearchProps> = ({ shouldRefetch, setShouldRefetch }) => {
+const CustomSearch: React.FC<CustomSearchProps> = ({ setShouldRefetch }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
 
