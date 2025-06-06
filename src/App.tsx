@@ -93,20 +93,3 @@ useEffect(() => {
 }
 
 export default App
-
-
-
-{/* <BrowserRouter>
-  {!hasBeerBeenSelected && (
-    <Navbar
-      isAcidic={isAcidic}
-      setIsAcidic={setIsAcidic}
-      setIsClassic={setIsClassic}
-      isClassic={isClassic}
-      isHighABV={isHighABV}
-      setIsHighABV={setIsHighABV}
-      setSearchTerm={setSearchTerm}
-      searchTerm={searchTerm}
-      beers={beers}
-    />
-  )} */}

@@ -7,7 +7,7 @@ type FilterItemProps = {
 }
 
 const FilterItem = ({filteredBeer} : FilterItemProps) => {
-
+        console.log("filteredBeer: ", filteredBeer)
     return (
     <div className="filteritem-beer-card">
         <div className="filterItem-beer-card__content">
