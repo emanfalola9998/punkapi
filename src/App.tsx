@@ -5,7 +5,7 @@ import Main from './components/Main/Main'
 import Navbar from './components/Navbar/Navbar'
 import beers from './data/beers'
 import {BeerType} from './types/types'
-import {Routes, Route } from "react-router-dom";
+import {Routes, Route, Navigate } from "react-router-dom";
 import NavMenu from './components/NavMenu/NavMenu'
 import CustomSearch from './components/CustomSearch/CustomSearch'
 
@@ -54,6 +54,7 @@ const [beerData, setBeerData] = useState<BeerType[]>()
     <div className='app'>
         <NavMenu showNav={showNav} setShowNav={setShowNav} />
         <Routes>
+          <Route path="/" element={<Navigate to="/punkapi" replace />} />
           <Route
             path="/punkapi"
             element={
