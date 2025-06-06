@@ -35,7 +35,7 @@ useEffect(() => {
   };
 
   getBeers(); // Always call it on mount
-}, [beerData]); // <- empty dependency array
+}, []); // <- empty dependency array
 
 
 
