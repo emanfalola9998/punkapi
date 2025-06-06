@@ -42,7 +42,7 @@ const CardList = ({beers, setHasBeerBeenSelected,}: CardListTypes) => {
     // }
 
     const foodPairings = () => {
-        const food = selectedBeer.food_pairing.map((foodPairings, index) => (<p key={index}>{foodPairings}</p>))
+        const food = selectedBeer.food_pairing?.map((foodPairings, index) => (<p key={index}>{foodPairings}</p>))
         return {food}
     }
 
