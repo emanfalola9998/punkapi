@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 
-const CustomSearch = () => {
-    const [searchTerm, setSearchTerm] = useState<string>("")
+type CustomSearchProps = {
+    shouldRefetch: boolean
+    setShouldRefetch: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const CustomSearch: React.FC<CustomSearchProps> = ({ shouldRefetch, setShouldRefetch }) => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(e.target.value.trim())
@@ -27,6 +33,7 @@ const endpoint = isLocal
     }
 
     console.log('✅ Submitted successfully')
+      setShouldRefetch(prev => !prev); // ✅ more idiomatic than setShouldRefetch(!shouldRefetch)
   } catch (error) {
     console.error("❌ API call failed:", error)
   }

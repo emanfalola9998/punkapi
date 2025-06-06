@@ -19,6 +19,7 @@ const [isAcidic ] = useState<boolean>(false) // not needed due to redux
 const [hasBeerBeenSelected, setHasBeerBeenSelected] = useState<boolean>(false);
 const [showNav, setShowNav] = useState(false); 
 const [beerData, setBeerData] = useState<BeerType[]>() 
+const [shouldRefetch, setShouldRefetch] = useState(false)
 
 useEffect(() => {
   const getBeers = async () => {
@@ -35,7 +36,7 @@ useEffect(() => {
   };
 
   getBeers(); // Always call it on mount
-}, []); // <- empty dependency array
+}, [shouldRefetch]); // <- empty dependency array
 
 
 
@@ -80,7 +81,10 @@ useEffect(() => {
 
           <Route 
             path="/customSearch"
-            element={<CustomSearch/>}
+            element={<CustomSearch
+              shouldRefetch={shouldRefetch}
+              setShouldRefetch={setShouldRefetch}
+            />}
           />
       </Routes>
     </div>
