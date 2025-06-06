@@ -24,7 +24,7 @@ const [shouldRefetch, setShouldRefetch] = useState(false)
 useEffect(() => {
   const getBeers = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/beers`);
+      const response = await fetch("https://beersbackendnodejs-production.up.railway.app/api/beers");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
